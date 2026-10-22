@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: packetscope-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: packetscope
+      POSTGRES_PASSWORD: packetscope
+      POSTGRES_DB: packetscope
+    ports:
+      - "5432:5432"
+    volumes:
+      - packetscope_data:/var/lib/postgresql/data
+
+volumes:
+  packetscope_data:
